@@ -20,7 +20,7 @@ class SelectionMenu(customtkinter.CTkFrame):
         return self.options.get()
 
 class FilePickerButton(customtkinter.CTkFrame):
-    def __init__(self, master, title='Select File', filetypes=(('csv files', '*.csv'), ('Excel files', '*.xlsx'), ("all files", "*.*"))):
+    def __init__(self, master, title='Select File', filetypes=(("all files", "*.*"),('csv files', '*.csv'), ('Excel files', '*.xlsx'))):
         super().__init__(master)
         
         self.filetypes = filetypes
@@ -37,11 +37,8 @@ class FilePickerButton(customtkinter.CTkFrame):
         # Choose file button
         self.button = customtkinter.CTkButton(self, text="Choose File", command=self.pick_file)
         self.button.grid(row=1, column=0, padx=10, pady=(10,0), sticky='new')
-        
-
     
     def set_filename(self, filename):
-        self.entry.select_clear()
         self.filename=filename
         self.filenamedisplay.configure(text=self.get_filename())
         
