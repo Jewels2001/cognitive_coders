@@ -26,19 +26,31 @@ class FilePickerButton(customtkinter.CTkFrame):
         self.filetypes = filetypes
         self.filename = "NO FILE SELECTED"
         
-        self.button = customtkinter.CTkButton(self, text="Select File", command=self.pick_file)
+        # Set the title
+        self.title = customtkinter.CTkLabel(self, text=title, fg_color="transparent", corner_radius=6)
+        self.title.grid(row=0, column=0, padx=10, pady=(10, 0), sticky="new")
+
+        # Chosen file name display
+        self.filenamedisplay = customtkinter.CTkLabel(self, text=self.get_filename(), fg_color="transparent")
+        self.filenamedisplay.grid(row=2, column=0, padx=10, pady=(10,0), sticky='new')
+        
+        # Choose file button
+        self.button = customtkinter.CTkButton(self, text="Choose File", command=self.pick_file)
         self.button.grid(row=1, column=0, padx=10, pady=(10,0), sticky='new')
         
-        self.filenamedisplay = customtkinter.CTkLabel(self, text="FileName: " + self.get_filename(), fg_color="transparent")
-        self.filenamedisplay.grid(row=2, column=0, padx=10, pady=(10,0), sticky='new')
+
+    
+    def set_filename(self, filename):
+        self.entry.select_clear()
+        self.filename=filename
+        self.filenamedisplay.configure(text=self.get_filename())
         
     def pick_file(self):
         file = customtkinter.filedialog.askopenfilename(filetypes=self.filetypes)
         if file:
-            self.filename=file
-            self.filenamedisplay.configure(text="FileName: " + self.get_filename())
+            self.set_filename(file)
             
-
+    # call this method as an input to any methods that require a file path for input
     def get_filename(self):
         return self.filename
     
