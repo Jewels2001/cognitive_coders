@@ -43,7 +43,7 @@ class FilePickerButton(customtkinter.CTkFrame):
         self.filenamedisplay.configure(text=self.get_filename())
         
     def pick_file(self):
-        file = customtkinter.filedialog.askopenfilename(filetypes=self.filetypes)
+        file = customtkinter.filedialog.askdirectory()
         if file:
             self.set_filename(file)
             
