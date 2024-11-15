@@ -26,7 +26,7 @@ class FilePickerButton(customtkinter.CTkFrame):
         self.filetypes = filetypes
         self.filename = "NO FILE SELECTED"
         
-        self.button = customtkinter.CTkButton(self, text="Select File", command=self.pick_file())
+        self.button = customtkinter.CTkButton(self, text="Select File", command=self.pick_file)
         self.button.grid(row=1, column=0, padx=10, pady=(10,0), sticky='new')
         
         self.filenamedisplay = customtkinter.CTkLabel(self, text="FileName: " + self.get_filename(), fg_color="transparent")
@@ -36,6 +36,8 @@ class FilePickerButton(customtkinter.CTkFrame):
         file = customtkinter.filedialog.askopenfilename(filetypes=self.filetypes)
         if file:
             self.filename=file
+            self.filenamedisplay.configure(text="FileName: " + self.get_filename())
+            
 
     def get_filename(self):
         return self.filename
