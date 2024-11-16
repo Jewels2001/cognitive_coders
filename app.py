@@ -29,7 +29,7 @@ class App(customtkinter.CTk):
         self.appearance_mode_label = customtkinter.CTkLabel(self.sidebar_frame, text="Appearance Mode:", anchor="w")
         self.appearance_mode_label.grid(row=5, column=0, padx=20, pady=(10, 0))
         self.appearance_mode_optionemenu = customtkinter.CTkOptionMenu(self.sidebar_frame,
-                                                                       values=["Light", "Dark", "System"],
+                                                                       values=["System", "Light", "Dark"],
                                                                        command=lambda values:
                                                                        function.change_appearance_mode_event(self, values))
         self.appearance_mode_optionemenu.grid(row=6, column=0, padx=20, pady=(10, 10))
@@ -69,8 +69,8 @@ class App(customtkinter.CTk):
         self.file_name_display.grid(row=2, column=3, pady=(10, 0), sticky='nsew')
 
         # Choose file button
-        self.file_button = customtkinter.CTkButton(self.sidebar_frame2, text="Choose File: ",
-                                                   command=lambda: function.pick_file(self))
+        self.file_button = customtkinter.CTkButton(self.sidebar_frame2, text="Choose Destination Folder: ",
+                                                   command=lambda: function.pick_folder(self))
         self.file_button.grid(row=1, column=3, padx=20, pady=10, sticky='nsew')
 
         # Option Menu
@@ -78,21 +78,21 @@ class App(customtkinter.CTk):
         self.drop_down_label.grid(row=3, column=3, padx=20, pady=(40, 0))
         self.drop_down_label_option_menu = customtkinter.CTkOptionMenu(self.sidebar_frame2, values=["Right", "Left"],
                                                                        command=lambda values:
-                                                                       function.sidebar_button_event(self))
+                                                                       function.set_label(self, values))
         self.drop_down_label_option_menu.grid(row=4, column=3, padx=20, pady=(0, 140))
 
         # Generate Button
         self.generate_button = customtkinter.CTkButton(self.sidebar_frame2, text="Generate EEG",
-                                                       command=lambda: function.sidebar_button_event(self))
+                                                       command=lambda: function.set_data(self, function.get_label(self)))
         self.generate_button.grid(row=5, column=3, padx=20, pady=(50, 20))
 
         # Download button
         self.Download_button = customtkinter.CTkButton(self.sidebar_frame2, text="Download",
-                                                       command=lambda: function.sidebar_button_event(self))
+                                                       command=lambda: function.download(self, function.get_label(self), function.get_folder(self), function.get_label(self)))
         self.Download_button.grid(row=6, column=3, padx=20, pady=(20, 10))
 
         # Project Description
-        self.appearance_mode_optionemenu.set("Dark")
+        self.appearance_mode_optionemenu.set("System")
         self.scaling_optionemenu.set("100%")
         self.textbox.insert("0.0",
                             "Introduction\n\n" + "Lorem ipsum dolor sit amet, consetetur sadipscing elitr,"

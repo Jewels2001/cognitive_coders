@@ -23,7 +23,9 @@ class fileGenerator:
                     'Both fists': pd.read_csv('Data/experiment.csv'), 
                     'Left foot': pd.read_csv('Data/experiment.csv'),
                     'Right foot': pd.read_csv('Data/experiment.csv'),
-                    'Both feet': pd.read_csv('Data/experiment.csv'), }
+                    'Both feet': pd.read_csv('Data/experiment.csv'),
+                    'Left' : pd.read_csv('Data/experiment.csv'),
+                    'Right' : pd.read_csv('Data/experiment.csv')}
         
     # Step 1a - Take GUI input to file path to data we want to generate
     def _set_filepath(self, filepath):
@@ -40,7 +42,7 @@ class fileGenerator:
         self._set_filename(filename)
         data_to_output.to_csv(self.filepath + '/' + self.filename + '.csv')
         
-    def generate_data(self, label, filepath, filename):
+    def generate_data(self, label, filepath, filename='file'):
         self._set_filepath(filepath)
         self._set_label(label)
         self._output_data(filename)
