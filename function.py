@@ -25,7 +25,8 @@ def set_filename(app, filename):
     app.file_name_display.configure(text=filename)
     
 def set_folder(app, folder):
-    folder = os.path(folder)
+    folder = os.path.abspath(folder)
+    print(folder)
     app.folder = folder
     app.file_name_display.configure(text=folder)
 
