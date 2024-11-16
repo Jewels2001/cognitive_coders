@@ -14,22 +14,16 @@ def change_scaling_event(app, new_scaling: str):
     new_scaling_float = int(new_scaling.replace("%", "")) / 100
     customtkinter.set_widget_scaling(new_scaling_float)
 
-
-def sidebar_button_event(app):
-    # Placeholder event for sidebar buttons
-    print("sidebar_button click")
-
-
 def set_filename(app, filename):
     filename = os.path.basename(filename)
     app.filename = filename
     app.file_name_display.configure(text=filename)
-    
+
 def set_folder(app, folder):
     folder = os.path.abspath(folder)
     print(folder)
     app.folder = folder
-    app.file_name_display.configure(text=folder)
+    app.file_name_display.configure(text=os.path.basename(folder))
 
 def set_label(app, label):
     app.label = label
