@@ -58,7 +58,7 @@ class App(customtkinter.CTk):
         self.filename = "NO FILE SELECTED"
 
         # Set the title
-        self.title = customtkinter.CTkLabel(self.sidebar_frame2, text="title", fg_color="transparent", corner_radius=6)
+        self.title = customtkinter.CTkLabel(self.sidebar_frame2, text="Select File location to Dowload", fg_color="transparent", corner_radius=6)
         self.title.grid(row=0, column=3, pady=(10, 0), sticky="nsew")
 
         # Chosen file name display
