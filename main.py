@@ -1,4 +1,10 @@
-import app
+from app import App
 
-app = app.App()
-app.mainloop()
+
+def main():
+    App()
+
+
+if __name__ == '__main__':
+    app = App()
+    app.mainloop()
