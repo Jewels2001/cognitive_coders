@@ -5,7 +5,6 @@ import os
 import backend
 import matplotlib.pyplot as plt
 
-
 def change_appearance_mode_event(app, new_appearance_mode: str):
     customtkinter.set_appearance_mode(new_appearance_mode)
 
@@ -35,6 +34,7 @@ def set_data(app, label):
     fileGenerator = backend.fileGenerator()
     try:
         app.data = fileGenerator.datasets[label]
+        enable_downloads(app)
     except KeyError:
         app.data = None
         print("Label not found in datasets")
@@ -74,10 +74,14 @@ def getSelected(app):
 def plot(app, data):
     data = data
     ncolumns = len(data.columns)
-    fig, ax = plt.subplots(ncols=ncolumns, figsize=(5*ncolumns, 5))
+    fig, ax = plt.subplots(nrows=int(ncolumns/2), ncols=2, figsize=(10, 5*ncolumns))
+    ax = ax.flatten()  # Flatten the 2D array to simplify indexing
     for i, column in enumerate(data.columns):
         ax[i].plot(data[column])
         ax[i].set_title(column)
-    plt.tight_layout()
-    plt.grid()
+        plt.tight_layout()
+        plt.grid()
     plt.show()
+    
+def enable_downloads(app):
+    app.Download_button.configure(state='normal')
