@@ -45,7 +45,7 @@ class App(customtkinter.CTk):
         self.main_button_1.grid(row=3, column=3, padx=(20, 20), pady=(20, 20), sticky="nsew")
 
         # create textbox
-        self.textbox = customtkinter.CTkTextbox(self, width=250)
+        self.textbox = customtkinter.CTkTextbox(self, width=250, state='disabled')
         self.textbox.grid(row=0, column=1, padx=(20, 0), pady=(20, 0), sticky="nsew")
 
         # Sidebar for File selection and Label
@@ -88,7 +88,7 @@ class App(customtkinter.CTk):
 
         # Download button
         self.Download_button = customtkinter.CTkButton(self.sidebar_frame2, text="Download",
-                                                       command=lambda: function.download(self, function.get_label(self), function.get_folder(self), function.get_label(self)))
+                                                       command=lambda: function.download(self, function.get_label(self), function.get_folder(self), function.get_label(self)), state='disabled')
         self.Download_button.grid(row=6, column=3, padx=20, pady=(20, 10))
 
         # Project Description

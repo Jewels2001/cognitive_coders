@@ -41,6 +41,7 @@ def set_data(app, label):
     fileGenerator = backend.fileGenerator()
     try:
         app.data = fileGenerator.datasets[label]
+        enable_downloads(app)
     except KeyError:
         app.data = None
         print("Label not found in datasets")
@@ -84,3 +85,7 @@ def plot(app, data):
     plt.tight_layout()
     plt.grid()
     plt.show()
+    
+def enable_downloads(app):
+    print('Enabling downloads')
+    app.Download_button.configure(state='normal')
