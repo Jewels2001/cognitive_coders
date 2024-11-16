@@ -1,6 +1,7 @@
 import tkinter
 import tkinter.messagebox
 import customtkinter
+import os
 
 
 def change_appearance_mode_event(app, new_appearance_mode: str):
@@ -17,12 +18,13 @@ def sidebar_button_event(app):
 
 
 def set_filename(app, filename):
+    filename = os.path.basename(filename)
     app.filename = filename
     app.file_name_display.configure(text=filename)
 
 
 def pick_file(app):
-    file = customtkinter.filedialog.askopenfile(filetypes=app.filetypes)
+    file = customtkinter.filedialog.askopenfilename(filetypes=app.filetypes)
     if file:
         set_filename(app, file)
 
