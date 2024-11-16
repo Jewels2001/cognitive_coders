@@ -88,3 +88,7 @@ def plot(app, data):
 def enable_button(app, button):
     app.button = button
     app.button.configure(state='normal')
+
+def Open_text_file(text_file):
+    with open(text_file, 'r', encoding='utf-8') as text:
+        return text.read()

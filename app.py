@@ -98,7 +98,5 @@ class App(customtkinter.CTk):
         self.appearance_mode_optionemenu.set("System")
         self.scaling_optionemenu.set("100%")
         self.textbox.insert("0.0",
-                            "Introduction\n\n" + "Lorem ipsum dolor sit amet, consetetur sadipscing elitr,"
-                                                 " sed diam nonumy eirmod tempor invidunt ut labore et dolore"
-                                                 " magna aliquyam erat, sed diam voluptua.\n\n" * 20)
+                            "Introduction\n\n" + function.Open_text_file("./Data/Project_description.txt"))
         self.textbox.configure(state='disabled')
