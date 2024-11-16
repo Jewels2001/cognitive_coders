@@ -82,7 +82,7 @@ class App(customtkinter.CTk):
 
         # Generate Button
         self.generate_button = customtkinter.CTkButton(self.sidebar_frame2, text="Generate EEG",
-                                                       command=lambda: function.set_data(self, function.get_label(self)))
+                                                       command=lambda: function.set_data(self, function.get_label(self)), state='disabled')
         self.generate_button.grid(row=6, column=3, padx=20, pady=(10, 20))
 
         # Download button

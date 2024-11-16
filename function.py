@@ -26,6 +26,7 @@ def set_folder(app, folder):
 
 def set_label(app, label):
     app.label = label
+    enable_button(app, app.generate_button)
 
 def get_label(app):
     return app.label
