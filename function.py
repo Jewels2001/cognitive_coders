@@ -3,6 +3,7 @@ import tkinter.messagebox
 import customtkinter
 import os
 import backend
+import matplotlib.pyplot as plt
 
 
 def change_appearance_mode_event(app, new_appearance_mode: str):
@@ -65,10 +66,21 @@ def get_folder(app):
     except:
         print("No folder selected")
 
-def download(self, label, filepath, filename):
+def download(app, label, filepath, filename):
     print(filepath)
     fileGenerator = backend.fileGenerator()
     fileGenerator.generate_data(label, filepath, filename)
 
 def getSelected(app):
     return app.options.get()
+
+def plot(app, data):
+    data = data
+    ncolumns = len(data.columns)
+    fig, ax = plt.subplots(ncols=ncolumns, figsize=(5*ncolumns, 5))
+    for i, column in enumerate(data.columns):
+        ax[i].plot(data[column])
+        ax[i].set_title(column)
+    plt.tight_layout()
+    plt.grid()
+    plt.show()

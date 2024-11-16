@@ -40,7 +40,14 @@ class fileGenerator:
     def _output_data(self, filename):
         data_to_output = self.datasets[self.label]
         self._set_filename(filename)
-        data_to_output.to_csv(self.filepath + '/' + self.filename + '.csv')
+        output_success = False
+        output_attempts = 0
+        while (output_success == False):
+            try:
+                data_to_output.to_csv(self.filepath + '/' + self.filename + '(' + str(output_attempts) + ')' + '.csv', mode='x')
+                output_success = True
+            except:
+                output_attempts+=1
         
     def generate_data(self, label, filepath, filename='file'):
         self._set_filepath(filepath)
