@@ -47,3 +47,6 @@ class fileGenerator:
         
         # open file explorer to show the user the file location
         os.startfile(filepath)
+        
+    def getData(self):
+        return self.datasets[self.label]
