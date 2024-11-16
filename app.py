@@ -74,9 +74,10 @@ class App(customtkinter.CTk):
         # Option Menu
         self.drop_down_label = customtkinter.CTkLabel(self.sidebar_frame2, text="Select EEG: ", anchor="w")
         self.drop_down_label.grid(row=3, column=3, padx=20, pady=(40, 0))
-        self.drop_down_label_option_menu = customtkinter.CTkOptionMenu(self.sidebar_frame2, values=["Right", "Left"],
+        self.drop_down_label_option_menu = customtkinter.CTkOptionMenu(self.sidebar_frame2, values=["Right", "Left"], hover=True,
                                                                        command=lambda values:
                                                                        function.set_label(self, values))
+        self.drop_down_label_option_menu.set('Select a Label')
         self.drop_down_label_option_menu.grid(row=4, column=3, padx=20, pady=(0, 140))
 
         # Generate Button
