@@ -20,11 +20,11 @@ class SelectionMenu(customtkinter.CTkFrame):
         return self.options.get()
 
 class FilePickerButton(customtkinter.CTkFrame):
-    def __init__(self, master, title='Select File', filetypes=(("all files", "*.*"),('csv files', '*.csv'), ('Excel files', '*.xlsx'))):
+    def __init__(self, master, title='Select Folder', filetypes=(("all files", "*.*"),('csv files', '*.csv'), ('Excel files', '*.xlsx'))):
         super().__init__(master)
         
         self.filetypes = filetypes
-        self.filename = "NO FILE SELECTED"
+        self.filename = "NO FOLDER SELECTED"
         
         # Set the title
         self.title = customtkinter.CTkLabel(self, text=title, fg_color="transparent", corner_radius=6)
@@ -35,7 +35,7 @@ class FilePickerButton(customtkinter.CTkFrame):
         self.filenamedisplay.grid(row=2, column=0, padx=10, pady=(10,0), sticky='new')
         
         # Choose file button
-        self.button = customtkinter.CTkButton(self, text="Choose File", command=self.pick_file)
+        self.button = customtkinter.CTkButton(self, text="Choose Folder", command=self.pick_file)
         self.button.grid(row=1, column=0, padx=10, pady=(10,0), sticky='new')
     
     def set_filename(self, filename):
@@ -50,7 +50,21 @@ class FilePickerButton(customtkinter.CTkFrame):
     # call this method as an input to any methods that require a file path for input
     def get_filename(self):
         return self.filename
-    
+
+class TextEntry(customtkinter.CTkFrame):
+    def __init__(self, master, title='New file name'):
+        super().__init__(master)
+        self.TextEntry = customtkinter.CTkEntry(self)
+        self.TextEntry.grid(row=1, column=0, padx=10, pady=(10,0), sticky='new')
+        
+        self.title = customtkinter.CTkLabel(self, text=title, fg_color="transparent", corner_radius=6)
+        self.title.grid(row=0, column=0, padx=10, pady=(10, 0), sticky="new")
+
+    def get(self):
+        return self.TextEntry.get()
+
+
+
 
 class VerticalRadiobuttonFrame(customtkinter.CTkScrollableFrame):
     def __init__(self, master,  title='Radio Buttons', values=[],):

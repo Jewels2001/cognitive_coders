@@ -1,4 +1,4 @@
-import gui
+import app
 
-app = gui.App()
+app = app.App()
 app.mainloop()

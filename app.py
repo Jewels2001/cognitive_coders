@@ -20,13 +20,16 @@ class App(customtkinter.CTk):
         self.labels_menu.grid(row=1, column=0, padx=10, pady=(10,0), sticky='nw')
         
         # Choose destination file path
-        self.file_picker = widgets.FilePickerButton(self, title='Select File')
+        self.file_picker = widgets.FilePickerButton(self, title='Destination Folder')
         self.file_picker.grid(row=0, column=0, padx=10, pady=(10,0), sticky='nw')
         
+        #text entry
+        self.text_entry = widgets.TextEntry(self)
+        self.text_entry.grid(row=0, column=1, padx=10, pady=(10,0), sticky='nw')
+        
         # Submit button
-        self.button = customtkinter.CTkButton(self, text="Generate Data", command=lambda: self.file_generator.generate_data(self.labels_menu.getSelected(), self.file_picker.get_filename()))
+        self.button = customtkinter.CTkButton(self, text="Generate Data", command=lambda: self.file_generator.generate_data(self.labels_menu.getSelected(), self.file_picker.get_filename(), self.text_entry.get()))
         self.button.grid(row=2, column=0, padx=10, pady=20, sticky='nw')
-    
-    # Change this method to do whatever the submit button does - currently prints selected label
-    def printOption(self):
-        print(self.labels_menu.getSelected())
+        
+
+        
