@@ -74,7 +74,7 @@ class App(customtkinter.CTk):
         # Option Menu
         self.drop_down_label = customtkinter.CTkLabel(self.sidebar_frame2, text="Select EEG: ", anchor="w")
         self.drop_down_label.grid(row=3, column=3, padx=20, pady=(40, 0))
-        self.drop_down_label_option_menu = customtkinter.CTkOptionMenu(self.sidebar_frame2, values=["Right", "Left"], hover=True,
+        self.drop_down_label_option_menu = customtkinter.CTkOptionMenu(self.sidebar_frame2, values=["Right", "Left"],
                                                                        command=lambda values:
                                                                        function.set_label(self, values))
         self.drop_down_label_option_menu.set('Select a Label')
@@ -91,7 +91,7 @@ class App(customtkinter.CTk):
         self.Download_button.grid(row=6, column=3, padx=20, pady=(10, 20))
 
         # Show Plots button
-        self.Show_Plot_button = customtkinter.CTkButton(self.sidebar_frame2, text="Open EEG Plots", command=lambda: function.plot(self, function.get_data(self)))
+        self.Show_Plot_button = customtkinter.CTkButton(self.sidebar_frame2, text="Open EEG Plots", command=lambda: function.plot(self, function.get_data(self)), state='disabled')
         self.Show_Plot_button.grid(row=7, column=3, padx=20)
 
         # Project Description
