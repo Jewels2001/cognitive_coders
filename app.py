@@ -74,7 +74,6 @@ class App(customtkinter.CTk):
         self.file_button.grid(row=1, column=3, padx=20, pady=10, sticky='nsew')
 
         # Option Menu
-
         self.drop_down_label = customtkinter.CTkLabel(self.sidebar_frame2, text="Select EEG: ", anchor="w")
         self.drop_down_label.grid(row=3, column=3, padx=20, pady=(40, 0))
         self.drop_down_label_option_menu = customtkinter.CTkOptionMenu(self.sidebar_frame2, values=["Right", "Left"],
@@ -83,13 +82,11 @@ class App(customtkinter.CTk):
         self.drop_down_label_option_menu.grid(row=4, column=3, padx=20, pady=(0, 140))
 
         # Generate Button
-
         self.generate_button = customtkinter.CTkButton(self.sidebar_frame2, text="Generate EEG",
                                                        command=lambda: function.sidebar_button_event(self))
         self.generate_button.grid(row=5, column=3, padx=20, pady=(50, 20))
 
-        # DownLoad button
-
+        # Download button
         self.Download_button = customtkinter.CTkButton(self.sidebar_frame2, text="Download",
                                                        command=lambda: function.sidebar_button_event(self))
         self.Download_button.grid(row=6, column=3, padx=20, pady=(20, 10))
