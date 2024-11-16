@@ -1,9 +1,10 @@
-import gui.py
+from app import App
 
 
 def main():
-    app.App()
+    App()
 
 
 if __name__ == '__main__':
-    main()
+    app = App()
+    app.mainloop()
