@@ -40,9 +40,6 @@ class App(customtkinter.CTk):
                                                                command=lambda values: function.change_scaling_event(
                                                                    self, values))
         self.scaling_optionemenu.grid(row=8, column=0, padx=20, pady=(10, 20))
-        self.main_button_1 = customtkinter.CTkButton(master=self, fg_color="transparent", border_width=2,
-                                                     text_color=("gray10", "#DCE4EE"), text="Button 1")
-        self.main_button_1.grid(row=3, column=3, padx=(20, 20), pady=(20, 20), sticky="nsew")
 
         # create textbox
         self.textbox = customtkinter.CTkTextbox(self, width=250, state='disabled')
@@ -84,12 +81,16 @@ class App(customtkinter.CTk):
         # Generate Button
         self.generate_button = customtkinter.CTkButton(self.sidebar_frame2, text="Generate EEG",
                                                        command=lambda: function.set_data(self, function.get_label(self)))
-        self.generate_button.grid(row=5, column=3, padx=20, pady=(50, 20))
+        self.generate_button.grid(row=5, column=3, padx=20, pady=(20, 10))
 
         # Download button
         self.Download_button = customtkinter.CTkButton(self.sidebar_frame2, text="Download",
-                                                       command=lambda: function.download(self, function.get_label(self), function.get_folder(self), function.get_label(self)), state='disabled')
-        self.Download_button.grid(row=6, column=3, padx=20, pady=(20, 10))
+                                                       command=lambda: function.download(self, function.get_label(self), function.get_folder(self), function.get_label(self)))
+        self.Download_button.grid(row=6, column=3, padx=20, pady=(10, 20))
+
+        # Show Plots button
+        self.Show_Plot_button = customtkinter.CTkButton(self.sidebar_frame2, text="Open EEG Plots", command=lambda: function.plot(self, function.get_data(self)))
+        self.Show_Plot_button.grid(row=7, column=3, padx=20)
 
         # Project Description
         self.appearance_mode_optionemenu.set("System")
@@ -98,3 +99,4 @@ class App(customtkinter.CTk):
                             "Introduction\n\n" + "Lorem ipsum dolor sit amet, consetetur sadipscing elitr,"
                                                  " sed diam nonumy eirmod tempor invidunt ut labore et dolore"
                                                  " magna aliquyam erat, sed diam voluptua.\n\n" * 20)
+        
