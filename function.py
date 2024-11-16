@@ -66,6 +66,9 @@ def get_folder(app):
     except:
         print("No folder selected")
 
+def get_data(app):
+    return app.data
+
 def download(app, label, filepath, filename):
     print(filepath)
     fileGenerator = backend.fileGenerator()
