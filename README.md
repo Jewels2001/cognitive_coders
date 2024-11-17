@@ -35,10 +35,10 @@ Run: `python main.py`
 - Esther Usen - Frontend, Backend
 
 ## Project Links
-[Devpost](https://devpost.com/software/cognitive-coders-eeggen)
-[Slide Deck](https://docs.google.com/presentation/d/17_FKfP1hAg65Ym8de3GpBkPXMZuvpYwgb4JyQk8Iv0c/edit?usp=sharing)
-[Video](https://youtu.be/qixidQP19nE)
+- [Devpost](https://devpost.com/software/cognitive-coders-eeggen)
+- [Slide Deck](https://docs.google.com/presentation/d/17_FKfP1hAg65Ym8de3GpBkPXMZuvpYwgb4JyQk8Iv0c/edit?usp=sharing)
+- [Video](https://youtu.be/qixidQP19nE)
 
 ## Resources
-[Motor Imagery Dataset](https://www.kaggle.com/datasets/miguelrcborges/motor-imagery-dataset)
-[EEG Datasets](https://github.com/meagmohit/EEG-Datasets)
+- [Motor Imagery Dataset](https://www.kaggle.com/datasets/miguelrcborges/motor-imagery-dataset)
+- [EEG Datasets](https://github.com/meagmohit/EEG-Datasets)
