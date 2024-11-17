@@ -4,6 +4,7 @@ import customtkinter
 import os
 import backend
 import matplotlib.pyplot as plt
+import model_processing
 
 def change_appearance_mode_event(app, new_appearance_mode: str):
     customtkinter.set_appearance_mode(new_appearance_mode)
@@ -34,7 +35,7 @@ def get_label(app):
 def set_data(app, label):
     fileGenerator = backend.fileGenerator()
     try:
-        app.data = fileGenerator.datasets[label]
+        app.data = model_processing.get_prediction(label)
         enable_button(app, app.Download_button)
         enable_button(app, app.Show_Plot_button)
 
