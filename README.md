@@ -1,11 +1,11 @@
 
 ## <img src="https://github.com/Jewels2001/cognitive_coders/blob/main/brandkit/cognitive_coders_segfault3.png" width="80">
-_SEGFAULT - Synthetic EEG Generator For Automatic Utility / Learning / Training_
+## _SEGFAULT - Synthetic EEG Generator For Automatic Utility / Learning / Training_
 By: (Team 43) Esther Usen, Jack Simonton, John Anvik, Julie Wojtiw-Quo, Kelvin Ying, Steven Gu
 
 For [natHACKS 2024](https://nathacks-2024.devpost.com) focused on synthesizing EEG data.
 
-/// <a href="#intro">Intro</a> •
+<a href="#intro">Intro</a> •
   <a href="#usage">How to Use</a> •
   <a href="#future">Future</a> •
   <a href="#contributors">Contributors</a> •
@@ -42,3 +42,5 @@ Run: `python main.py`
 ## Resources
 - [Motor Imagery Dataset](https://www.kaggle.com/datasets/miguelrcborges/motor-imagery-dataset)
 - [EEG Datasets](https://github.com/meagmohit/EEG-Datasets)
+
+- [Muse S Data Collection](https://github.com/alexandrebarachant/muse-lsl)
