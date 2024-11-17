@@ -2,6 +2,7 @@ import tkinter
 import tkinter.messagebox
 import customtkinter
 import function
+import model_processing
 
 customtkinter.set_appearance_mode("System")  
 customtkinter.set_default_color_theme("blue")  
@@ -74,9 +75,10 @@ class App(customtkinter.CTk):
         # Option Menu
         self.drop_down_label = customtkinter.CTkLabel(self.sidebar_frame2, text="Select EEG: ", fg_color="transparent", corner_radius=6)
         self.drop_down_label.grid(row=4, column=3, padx=20, pady=(5, 10), sticky='nsew')
-        self.drop_down_label_option_menu = customtkinter.CTkOptionMenu(self.sidebar_frame2, values=["Right", "Left"],
+        self.drop_down_label_option_menu = customtkinter.CTkOptionMenu(self.sidebar_frame2, values=[value for value in model_processing.encoding.keys()],
                                                                        command=lambda values:
                                                                        function.set_label(self, values))
+
         self.drop_down_label_option_menu.set('Select a Label')
         self.drop_down_label_option_menu.grid(row=5, column=3, padx=20, pady=(0, 230))
 
