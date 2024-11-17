@@ -19,6 +19,11 @@ Current neuroscience research studies involve real-time EEG collection, pairing 
 Run: `python main.py`
 
 ## Future
+ - Improve upon our SAAS by generating other types of EEG data corresponding to images, emotions, spoken words and additional motor functions.
+ - Add GPU capabilities to the model predictions, which would reduce our prediction/inference time of 5-10 seconds down to milliseconds.
+ - Fine tune the model weights and layers in order to make the output data even more realistic to real-world, live captured EEG data.
+ - Add website / online capabilities and a server-hosted backend so that users do not need to download any software 
+
 
 
 ## Contributors
