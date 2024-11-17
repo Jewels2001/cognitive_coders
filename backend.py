@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import os
 
+from model_processing import get_prediction
 
 
 
@@ -18,16 +19,7 @@ class fileGenerator:
         
         
         # example datasets for the different labels - final product will export datasets produced by ML model
-        self.datasets = {
-                    'Select a Label': pd.read_csv('Data/experiment.csv'),
-                    'Left fist': pd.read_csv('Data/experiment.csv'), 
-                    'Right fist': pd.read_csv('Data/experiment.csv'),
-                    'Both fists': pd.read_csv('Data/experiment.csv'), 
-                    'Left foot': pd.read_csv('Data/experiment.csv'),
-                    'Right foot': pd.read_csv('Data/experiment.csv'),
-                    'Both feet': pd.read_csv('Data/experiment.csv'),
-                    'Left' : pd.read_csv('Data/experiment.csv'),
-                    'Right' : pd.read_csv('Data/experiment.csv')}
+        self.datasets = {}
         
     # Step 1a - Take GUI input to file path to data we want to generate
     def _set_filepath(self, filepath):
@@ -40,7 +32,8 @@ class fileGenerator:
         self.filename = filename
     # Step 2 - output data corresponding to label to file path
     def _output_data(self, filename):
-        data_to_output = self.datasets[self.label]
+        print(self.label)
+        data_to_output = get_prediction(self.label)
         self._set_filename(filename)
         output_success = False
         output_attempts = 0
@@ -50,6 +43,11 @@ class fileGenerator:
                 output_success = True
             except:
                 output_attempts+=1
+            print(output_attempts)
+            if output_attempts == 10:
+                print('Failed to generate data after 10 attempts.')
+                return
+            
         
     def generate_data(self, label, filepath, filename='file'):
         self._set_filepath(filepath)
