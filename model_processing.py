@@ -1,12 +1,25 @@
 import pickle
-from keras.src import tree
+#from keras.src import tree
 import numpy as np
 import pandas as pd
 import random
+import joblib 
+
+# print("> loading generator...")
+# loaded_generator = joblib.load('conditional_generator_model.pkl')
+# print("> generator loaded!")
+
+print("> loading discriminator...")
+loaded_discriminator = joblib.load('conditional_discriminator_model.pkl')
+print("> discriminator loaded!")
+
+print("> loading gan...")
+loaded_gan = joblib.load('conditional_gan_model.pkl')
+print("> gan loaded!")
 
 
-with open('conditional_generator_model.pkl', 'rb') as file:
-    loaded_generator = pickle.load(file)
+#with open('conditional_generator_model.pkl', 'rb') as file:
+#    loaded_generator = pickle.load(file)
     # print("Loaded Generator data type: ", type(loaded_generator))
 
 # with open('conditional_discriminator_model.pkl', 'rb') as file:
